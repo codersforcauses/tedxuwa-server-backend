@@ -17,7 +17,7 @@ $ cd somepathname/txuwa-server-backend
 $ pip install virtualenv
 ```
 If you have multiple versions of python installed, please run `pip3` instead
-3. Create and activate a virtualenv
+3. Create a virtualenv
 A virtual environment ensure everyone working on this project will have the same dependencies
 installed and avoid the "it worked on my machine" bug
 ```bash
@@ -27,12 +27,17 @@ If you have multiple versions of python installed, run:
 ```bash
 $ virtualenv -p python3 env
 ```
-To activate the virtual environment
-4. Run migrations
+4. Activating the virtual environment
+To activate the virtual environment, run
+```bash
+$ source env/bin/activate
+```
+You will need to run this command every time you want to continue working on this repo
+5. Run migrations
 ```bash
 $ python manage.py migrate
 ```
-5. Load dummy data
+6. Load dummy data
 
 
 ### Starting the server
@@ -41,3 +46,4 @@ To start up the server, run
 $ python manage.py runserver
 ```
 The server will now be avalaible at [localhost:8000](http://localhost:8000/)
+For more server starting options, visit the [django docs] on the runserver command(https://docs.djangoproject.com/en/2.0/ref/django-admin/#runserver)
