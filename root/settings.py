@@ -15,6 +15,12 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Frontend settings
+FRONTEND_FOLDER_DIR = os.path.abspath(
+    os.path.join(BASE_DIR, "../frontend/"))
+FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
+FRONTEND_ENTRY_POINT = os.path.join(FRONTEND_FOLDER_DIR, "index.html")
+
 DEPLOYMENT = os.environ.get("DEPLOYMENT", "LOCAL")
 
 # Quick-start development settings - unsuitable for production
@@ -57,7 +63,7 @@ ROOT_URLCONF = 'root.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [FRONTEND_TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,3 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
+
+STATICFILES_DIRS = (
+    FRONTEND_FOLDER_DIR,
+)

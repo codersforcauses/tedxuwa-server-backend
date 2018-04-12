@@ -103,3 +103,5 @@ ENV/
 \.vscode/
 
 db\.sqlite3
+
+static/

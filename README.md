@@ -85,7 +85,9 @@ Digital Ocean and Github hook??
 
 ## Notes
 - The `db.sqlite3` IS the database. Backup regularly and don't delete it on production
+- The front end template dir is set to `static/build/` with entry point of `react_base.html`
 
 ## Things to remember
 - [ ] set `DEPLOYMENT` environment variable in production
 - [ ] protect master branch
+- [ ] run `collectstatic`
