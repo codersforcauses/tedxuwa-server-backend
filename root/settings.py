@@ -24,7 +24,7 @@ DEPLOYMENT = os.environ.get("DEPLOYMENT", "LOCAL")
 SECRET_KEY = 'k@m_$j=8@t*04bsswg-1z4g#8l+$rdfwsg)q^be(jwk#q(k@y%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if DEPLOYMENT != "PRODUCTION"
+DEBUG = DEPLOYMENT != "PRODUCTION"
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'website',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Australia/Perth'  # TEDxUWA is based in Perth, duh...
 
 USE_I18N = True
 

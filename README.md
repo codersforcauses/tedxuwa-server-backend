@@ -38,11 +38,33 @@ $ source env/bin/activate
 ```
 You will need to run this command every time you want to continue working on this repo
 
-5. Run migrations
+5. Installing requirements
+```bash
+$ pip install -r requirements.txt
+```
+
+6. Run migrations
 ```bash
 $ python manage.py migrate
 ```
-6. Load dummy data
+7. Point to settings file
+Run `vim env/bin/activate`
+right below the
+```
+_OLD_VIRTUAL_PATH="$PATH"
+PATH="$VIRTUAL_ENV/bin:$PATH"
+export PATH
+```
+put in
+```
+export DJANGO_SETTINGS_MODULE="root.settings"
+```
+reactivate the virtualenv
+```bash
+$ source env/bin/activate
+```
+
+7. Load dummy data
 
 
 ### Starting the server
