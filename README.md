@@ -1,4 +1,5 @@
-# server-backend
+# txuwa-server-backend
+
 This repo contains code for the database and server of the TEDxUWA website
 
 ## Getting started
@@ -50,4 +51,12 @@ To start up the server, run
 $ python manage.py runserver
 ```
 The server will now be avalaible at [localhost:8000](http://localhost:8000/).
-For more server starting options, visit the [django docs](https://docs.djangoproject.com/en/2.0/ref/django-admin/#runserver)for the runserver command
+For more server starting options, visit the [django docs](https://docs.djangoproject.com/en/2.0/ref/django-admin/#runserver) for the runserver command
+
+## Deployment
+TO BE WRITTEN
+Digital Ocean and Github hook??
+
+## Built with
+- Django (a server framework for python)
+- Sqlite (small imbeded database)
