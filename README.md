@@ -83,6 +83,9 @@ Digital Ocean and Github hook??
 - Django (a server framework for python)
 - Sqlite (small imbeded database)
 
+## Notes
+- The `db.sqlite3` IS the database. Backup regularly and don't delete it on production
+
 ## Things to remember
 - [ ] set `DEPLOYMENT` environment variable in production
 - [ ] protect master branch
