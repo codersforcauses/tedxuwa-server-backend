@@ -60,3 +60,6 @@ Digital Ocean and Github hook??
 ## Built with
 - Django (a server framework for python)
 - Sqlite (small imbeded database)
+
+## Things to remember
+- [ ] set `DEPLOYMENT` environment variable in production
