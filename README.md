@@ -85,3 +85,4 @@ Digital Ocean and Github hook??
 
 ## Things to remember
 - [ ] set `DEPLOYMENT` environment variable in production
+- [ ] protect master branch
