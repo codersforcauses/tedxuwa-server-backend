@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 
+from events.views import EventViewSet
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/events/', EventViewSet.as_view()),
     # https://medium.com/@nicholaskajoh/heres-a-dead-simple-react-django-setup-for-your-next-project-c0b0036663c6
     re_path('.*', TemplateView.as_view(template_name="react_base.html")),
 ]

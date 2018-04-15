@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+    'events',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +133,10 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 STATICFILES_DIRS = (
     FRONTEND_FOLDER_DIR,
 )
+
+
+# REST framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 20
+}
