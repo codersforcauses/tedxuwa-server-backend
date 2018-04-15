@@ -1,0 +1,1 @@
+[{"model": "events.event", "pk": 1, "fields": {"event_type": "SALON", "name": "Life after debt", "description": "", "location": "", "start": null, "end": null, "banner_image": "https://stackoverflow.com/questions/37336559/how-to-use-django-imagefield-and-why-use-it-at-all", "ticket_url": "", "notes": ""}}]
