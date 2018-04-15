@@ -2,6 +2,8 @@
 
 This repo contains code for the database and server of the TEDxUWA website
 
+[![CircleCI](https://circleci.com/gh/TEDxUWA/txuwa-server-backend.svg?style=svg)](https://circleci.com/gh/TEDxUWA/txuwa-server-backend)
+
 ## Getting started
 The instructions below will help you set up a development environment
 
@@ -82,6 +84,7 @@ Digital Ocean and Github hook??
 ## Built with
 - Django (a server framework for python)
 - Sqlite (small imbeded database)
+- Circleci (continuous intergration service)
 
 ## Notes
 - The `db.sqlite3` IS the database. Backup regularly and don't delete it on production
