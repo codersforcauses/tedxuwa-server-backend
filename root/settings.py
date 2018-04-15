@@ -21,6 +21,8 @@ FRONTEND_FOLDER_DIR = os.path.abspath(
 FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
 FRONTEND_ENTRY_POINT = os.path.join(FRONTEND_FOLDER_DIR, "index.html")
 
+MEDIA_ROOT = "static/uploaded_media/"
+
 DEPLOYMENT = os.environ.get("DEPLOYMENT", "LOCAL")
 
 # Quick-start development settings - unsuitable for production
@@ -44,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'events',
 ]
 
 MIDDLEWARE = [
