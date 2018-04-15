@@ -22,8 +22,10 @@ class Event(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     location = models.TextField(blank=True)
-    start = models.DateTimeField(blank=True, null=True)
-    end = models.DateTimeField(blank=True, null=True)
+    start = models.DateTimeField(blank=True, null=True,
+                                 help_text="Australia/Perth time")
+    end = models.DateTimeField(blank=True, null=True,
+                               help_text="Australia/Perth time")
     banner_image = models.URLField(blank=True,
                                    help_text="link to the banner image file")
     ticket_url = models.URLField(blank=True)
