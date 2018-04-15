@@ -23,8 +23,10 @@ class Event(models.Model):
     description = models.TextField(blank=True)
     start = models.DateTimeField(blank=True, null=True)
     end = models.DateTimeField(blank=True, null=True)
-    banner_image_file = models.ImageField(upload_to="events/images/")
-    run_sheet = models.FileField(upload_to="events/runsheets/")
+    banner_image_file = models.ImageField(upload_to="events/images/",
+                                          blank=True)
+    run_sheet = models.FileField(upload_to="events/runsheets/",
+                                 blank=True)
     notes = models.TextField(blank=True, help_text="internal use only")
 
     def __str__(self):
