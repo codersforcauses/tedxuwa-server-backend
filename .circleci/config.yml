@@ -1,10 +1,9 @@
 version: 2
 jobs:
    build:
-     docker:
-       - image: circleci/python:3.6.4
-    
-    working_directory: ~/txuwa-server-backend
+      working_directory: ~/txuwa-server-backend
+      docker:
+        - image: circleci/python:3.6.4
 
     steps:
       - checkout
