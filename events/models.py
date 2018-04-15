@@ -23,8 +23,8 @@ class Event(models.Model):
     description = models.TextField(blank=True)
     start = models.DateTimeField(blank=True, null=True)
     end = models.DateTimeField(blank=True, null=True)
-    banner_image_file = models.URLField(blank=True,
-                                        help_text="link to the banner image file")
+    banner_image = models.URLField(blank=True,
+                                   help_text="link to the banner image file")
     run_sheet = models.URLField(blank=True,
                                 help_text="link to the runsheet document")
     notes = models.TextField(blank=True, help_text="internal use only")
