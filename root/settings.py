@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'tedxuwa_user',
     'events',
 ]
 
@@ -79,6 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'root.wsgi.application'
 
+AUTH_USER_MODEL = 'tedxuwa_user.User'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
