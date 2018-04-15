@@ -21,12 +21,12 @@ class Event(models.Model):
                                   default=OTHER)
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
+    location = models.TextField(blank=True)
     start = models.DateTimeField(blank=True, null=True)
     end = models.DateTimeField(blank=True, null=True)
     banner_image = models.URLField(blank=True,
                                    help_text="link to the banner image file")
-    run_sheet = models.URLField(blank=True,
-                                help_text="link to the runsheet document")
+    ticket_url = models.URLField(blank=True)
     notes = models.TextField(blank=True, help_text="internal use only")
 
     def __str__(self):
