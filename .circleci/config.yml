@@ -50,7 +50,6 @@ jobs:
           command: |
             . venv/bin/activate
             coverage run manage.py test
-            coverage combine
             codecov
 
       - store_artifacts:
