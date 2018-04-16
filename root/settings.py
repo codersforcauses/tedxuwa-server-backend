@@ -15,13 +15,19 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Frontend settings
-FRONTEND_FOLDER_DIR = os.path.abspath(
-    os.path.join(BASE_DIR, "../frontend/"))
-FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
-FRONTEND_ENTRY_POINT = os.path.join(FRONTEND_FOLDER_DIR, "index.html")
-
 DEPLOYMENT = os.environ.get("DEPLOYMENT", "LOCAL")
+
+# Frontend settings
+if DEPLOYMENT != "PRODUCTION":
+    FRONTEND_FOLDER_DIR = os.path.abspath(
+        os.path.join(BASE_DIR, "../frontend/"))
+    FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
+    FRONTEND_ENTRY_POINT = os.path.join(FRONTEND_FOLDER_DIR, "index.html")
+    STATICFILES_DIRS = (
+        FRONTEND_FOLDER_DIR,
+    )
+else:
+    FRONTEND_TEMPLATE_DIR = ""
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -131,10 +137,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
-
-STATICFILES_DIRS = (
-    FRONTEND_FOLDER_DIR,
-)
 
 
 # REST framework settings

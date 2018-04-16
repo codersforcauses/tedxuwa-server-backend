@@ -77,5 +77,6 @@ Digital Ocean and Github hook??
 
 ## Things to remember
 - [ ] set `DEPLOYMENT` environment variable in production
+- [ ] regenerate django secret key
 - [ ] protect master branch
 - [ ] run `collectstatic`
