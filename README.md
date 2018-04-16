@@ -1,4 +1,4 @@
-# txuwa-server-backend [![CircleCI](https://circleci.com/gh/TEDxUWA/tedxuwa-server-backend.svg?style=svg)](https://circleci.com/gh/TEDxUWA/tedxuwa-server-backend)  [![codecov](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend)
+# tedxuwa-server-backend [![CircleCI](https://circleci.com/gh/TEDxUWA/tedxuwa-server-backend.svg?style=svg)](https://circleci.com/gh/TEDxUWA/tedxuwa-server-backend)  [![codecov](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend)
 
 This repo contains code for the database and server of the TEDxUWA website
 
@@ -8,21 +8,19 @@ The instructions below will help you set up a development environment
 ### Prerequisite
 1. Download and install [python 3](https://www.python.org/downloads/)
 
-### Installing
-1. `cd` into the project folder. For example:
+### Virtual environment
+`cd` into the project folder
 ```bash
-$ cd somepathname/txuwa-server-backend
+$ cd tedxuwa-server-backend
 ```
-2. Download virtualenv
+Download virtualenv
 ```bash
 $ pip install virtualenv
 ```
 If you have multiple versions of python installed, please run `pip3` instead
 
-3. Create a virtualenv
-
 A virtual environment ensure everyone working on this project will have the same dependencies
-installed and avoid the "it worked on my machine" bug
+installed and avoid the "it worked on my machine" bug. Create a new virtualenv with
 ```bash
 $ virtualenv env
 ```
@@ -30,25 +28,24 @@ If you have multiple versions of python installed, run:
 ```bash
 $ virtualenv -p python3 env
 ```
-4. Activating the virtual environment
-
 To activate the virtual environment, run
 ```bash
 $ source env/bin/activate
 ```
 You will need to run this command every time you want to continue working on this repo
 
-5. Installing requirements
+### Requirements
+Installing requirements
 ```bash
 $ pip install -r requirements.txt
 ```
 
-6. Run migrations
+### Database setup
+Run migrations
 ```bash
 $ python manage.py migrate
 ```
-
-7. Load dummy data
+Load dummy data
 
 
 ### Starting the server
