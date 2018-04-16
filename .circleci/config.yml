@@ -49,7 +49,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python manage.py test
+            coverage run manage.py test
 
           name: code coverage
           command: codecov
