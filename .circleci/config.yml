@@ -49,6 +49,9 @@ jobs:
           command: |
             . venv/bin/activate
             python manage.py test
+            
+          name: code coverage
+          command: codecov
 
       - store_artifacts:
           path: test-reports
