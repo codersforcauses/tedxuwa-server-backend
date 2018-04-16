@@ -49,10 +49,9 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            coverage run manage.py test
-
-          name: code coverage
-          command: codecov
+            coverage run manage.py test -v=3 --parallel=2
+            coverage combine
+            codecov
 
       - store_artifacts:
           path: test-reports
