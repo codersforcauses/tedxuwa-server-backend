@@ -49,22 +49,6 @@ $ pip install -r requirements.txt
 ```bash
 $ python manage.py migrate
 ```
-7. Point to settings file
-Run `vim env/bin/activate`
-right below the
-```
-_OLD_VIRTUAL_PATH="$PATH"
-PATH="$VIRTUAL_ENV/bin:$PATH"
-export PATH
-```
-put in
-```
-export DJANGO_SETTINGS_MODULE="root.settings"
-```
-reactivate the virtualenv
-```bash
-$ source env/bin/activate
-```
 
 7. Load dummy data
 
