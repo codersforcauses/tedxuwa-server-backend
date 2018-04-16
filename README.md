@@ -5,8 +5,8 @@ This repo contains code for the database and server of the TEDxUWA website
 ## Getting started
 The instructions below will help you set up a development environment
 
-### Prerequisite
-1. Download and install [python 3](https://www.python.org/downloads/)
+### Python prerequisite
+Download and install [python 3](https://www.python.org/downloads/)
 
 ### Virtual environment
 `cd` into the project folder
