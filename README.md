@@ -1,4 +1,4 @@
-# txuwa-server-backend  [![CircleCI](https://circleci.com/gh/TEDxUWA/txuwa-server-backend.svg?style=svg)](https://circleci.com/gh/TEDxUWA/txuwa-server-backend)  [![codecov](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend)
+# txuwa-server-backend [![CircleCI](https://circleci.com/gh/TEDxUWA/tedxuwa-server-backend.svg?style=svg)](https://circleci.com/gh/TEDxUWA/tedxuwa-server-backend)  [![codecov](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend)
 
 This repo contains code for the database and server of the TEDxUWA website
 
