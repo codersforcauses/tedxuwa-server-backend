@@ -61,11 +61,11 @@ TO BE WRITTEN
 Digital Ocean and Github hook??
 
 ## Built with
-- Django (a server framework for python)
-- Sqlite (small imbeded database)
-- Circleci (continuous intergration service)
-- Codecov (code coverage service)
-- Sentry (automated error log capture)
+- Django: [a server framework for python](https://www.djangoproject.com/)
+- Sqlite: [small imbeded database](https://www.sqlite.org/index.html)
+- Circleci: [continuous intergration service](https://circleci.com/gh/TEDxUWA/tedxuwa-server-backend)
+- Codecov: [code coverage service](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend)
+- Sentry: [automated error log capture](https://sentry.io/tedxuwa/tedxuwa/)
 
 ## Notes
 - The `db.sqlite3` IS the database. Backup regularly and don't delete it on production
