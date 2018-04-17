@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import raven
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -145,4 +146,61 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 20
+}
+
+
+# Sentry configs
+# https://sentry.io/tedxuwa/tedxuwa/getting-started/python-django/
+RAVEN_CONFIG = {
+    'dsn': 'https://4a10c69575b9428da91136badfd541e9:89104fdd40a2426abbdc35a049dd5a24@sentry.io/1190737',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    # https://github.com/getsentry/raven-python/issues/855
+    'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
+}
+# intergrate with logging to send errors to sentry automatically
+# https://docs.sentry.io/clients/python/integrations/django/#integration-with-logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'root': {
+        'level': 'WARNING',
+        'handlers': ['sentry'],
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s '
+                      '%(process)d %(thread)d %(message)s'
+        },
+    },
+    'handlers': {
+        'sentry': {
+            # To capture more than ERROR, change to WARNING, INFO, etc.
+            'level': 'WARNING',
+            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+            'tags': {'custom-tag': 'x'},
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'ERROR',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'raven': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'sentry.errors': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+    },
 }
