@@ -65,6 +65,7 @@ Digital Ocean and Github hook??
 - Sqlite (small imbeded database)
 - Circleci (continuous intergration service)
 - Codecov (code coverage service)
+- Sentry (automated error log capture)
 
 ## Notes
 - The `db.sqlite3` IS the database. Backup regularly and don't delete it on production
