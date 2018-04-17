@@ -11,7 +11,7 @@ class Member(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, blank=True)
     bio = models.TextField(blank=True, default="")
-    profile_picutre_url = models.URLField(blank=True, null=True)
+    profile_picture_url = models.URLField(blank=True, null=True)
     is_current = models.BooleanField(
         default=True, help_text="whether or not this member is a current comittee member")
 
