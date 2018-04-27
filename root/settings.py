@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEPLOYMENT = os.environ.get("DEPLOYMENT", "LOCAL")
 
 # Frontend settings
-if DEPLOYMENT != "PRODUCTION":
+if DEPLOYMENT == "PRODUCTION":
     FRONTEND_FOLDER_DIR = os.path.abspath(
         os.path.join(BASE_DIR, "../front-end/"))
     FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
