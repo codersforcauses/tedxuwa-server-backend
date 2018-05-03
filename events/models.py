@@ -33,3 +33,15 @@ class Event(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class EventSignup(models.Model):
+    """Keep track of who signed up for an event. Anyone who signed up for
+    an event is automatically a member"""
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    member = models.ForeignKey("tedxuwa_user.Member", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{}:{}".format(
+            member.__str__(), event.__str__()
+        )
