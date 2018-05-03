@@ -15,6 +15,7 @@ npm build
 cd ../back-end/
 git pull
 source env/bin/activate
-python manage.py collectstatic --noinput
+python manage.py collectstatic --noinput  # collect front end
+python manage.py migrate  # migrate the database
 # create a new detached screen and start server
 screen -d -m source env/bin/activate && python manage.py runserver 0.0.0.0:8000
