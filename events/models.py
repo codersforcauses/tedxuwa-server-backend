@@ -30,6 +30,8 @@ class Event(models.Model):
                                    help_text="link to the banner image file")
     ticket_url = models.URLField(blank=True)
     notes = models.TextField(blank=True, help_text="internal use only")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -41,8 +43,10 @@ class EventSignup(models.Model):
     analytics"""
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     member = models.ForeignKey("tedxuwa_user.Member", on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return "{}:{}".format(
-            member.__str__(), event.__str__()
+            self.member.__str__(), self.event.__str__()
         )
