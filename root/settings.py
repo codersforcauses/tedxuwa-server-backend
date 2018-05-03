@@ -31,6 +31,7 @@ if DEPLOYMENT == "PRODUCTION":
     )
 else:
     FRONTEND_TEMPLATE_DIR = ""
+    FRONTEND_ENTRY_POINT = ""
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -154,18 +155,20 @@ REST_FRAMEWORK = {
 
 # Sentry configs
 # https://sentry.io/tedxuwa/tedxuwa/getting-started/python-django/
-RAVEN_CONFIG = {
-    'dsn': 'https://4a10c69575b9428da91136badfd541e9:89104fdd40a2426abbdc35a049dd5a24@sentry.io/1190737',
-    # If you are using git, you can also automatically configure the
-    # release based on the git info.
-    # https://github.com/getsentry/raven-python/issues/855
-    'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
-}
+# only allow on production
+if DEPLOYMENT == "PRODUCTION":
+    RAVEN_CONFIG = {
+        'dsn': 'https://4a10c69575b9428da91136badfd541e9:89104fdd40a2426abbdc35a049dd5a24@sentry.io/1190737',
+        # If you are using git, you can also automatically configure the
+        # release based on the git info.
+        # https://github.com/getsentry/raven-python/issues/855
+        'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
+    }
 # intergrate with logging to send errors to sentry automatically
 # https://docs.sentry.io/clients/python/integrations/django/#integration-with-logging
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': DEPLOYMENT == "PRODUCTION",
     'root': {
         'level': 'WARNING',
         'handlers': ['sentry'],
@@ -191,7 +194,7 @@ LOGGING = {
     },
     'loggers': {
         'django.db.backends': {
-            'level': 'ERROR',
+            'level': 'WARNING',
             'handlers': ['console'],
             'propagate': False,
         },
