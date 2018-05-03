@@ -37,7 +37,8 @@ class Event(models.Model):
 
 class EventSignup(models.Model):
     """Keep track of who signed up for an event. Anyone who signed up for
-    an event is automatically a member"""
+    an event is automatically a member. Expand on this model as we get more
+    analytics"""
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     member = models.ForeignKey("tedxuwa_user.Member", on_delete=models.CASCADE)
 
