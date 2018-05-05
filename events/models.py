@@ -29,6 +29,7 @@ class Event(models.Model):
     banner_image = models.URLField(blank=True,
                                    help_text="link to the banner image file")
     ticket_url = models.URLField(blank=True)
+    featured = models.BooleanField(default=False)
     notes = models.TextField(blank=True, help_text="internal use only")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
