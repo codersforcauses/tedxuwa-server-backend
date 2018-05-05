@@ -17,13 +17,17 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.views.generic import TemplateView
+from rest_framework.routers import DefaultRouter
 
 from events.views import EventViewSet
 from tedxuwa_user.views import ComitteeListView
 
+router = DefaultRouter()
+router.register(r'^api/events', EventViewSet)
+
 urlpatterns = [
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('api/events/', EventViewSet.as_view()),
     path('api/committee/', ComitteeListView.as_view()),
     # https://medium.com/@nicholaskajoh/heres-a-dead-simple-react-django-setup-for-your-next-project-c0b0036663c6
     re_path('.*', TemplateView.as_view(template_name=settings.FRONTEND_ENTRY_POINT)),
