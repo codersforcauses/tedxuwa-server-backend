@@ -9,12 +9,13 @@
 pkill screen
 # front end deployment
 cd ../front-end/
-git pull
+git checkout origin/master
 npm build
 # back end deployment
 cd ../back-end/
-git pull
+git checkout origin/master
 source env/bin/activate
+pip install -r requirements.txt
 python manage.py collectstatic --noinput  # collect front end
 python manage.py migrate  # migrate the database
 python manage.py runserver 0.0.0.0:8000  # start the server on port 8000
