@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'raven.contrib.django.raven_compat',
+    'corsheaders',
 
     'rest_framework',
     'tedxuwa_user',
@@ -65,6 +66,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -105,6 +107,17 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# CORS
+# https://github.com/ottoyiu/django-cors-headers
+CORS_ORIGIN_WHITELIST = (
+    'google.com',
+    'tedxuwa.com',
+    'localhost:8000',
+    '127.0.0.1:8000',
+    '127.0.0.1:3000',
+    'localhost:8000',
+)
 
 
 # Password validation
