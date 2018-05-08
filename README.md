@@ -57,9 +57,43 @@ The server will now be avalaible at [localhost:8000](http://localhost:8000/).
 For more server starting options, visit the [django docs](https://docs.djangoproject.com/en/2.0/ref/django-admin/#runserver) for the runserver command
 
 ## Deployment
-TO BE WRITTEN
-Digital Ocean and Github hook??
 
+### Using deployment script
+On the digital ocean instance there is a folder called `website` on the root directory. Inside this folder there are 2 more folders: `front-end` and `back-end` each having the code from the repo. To use the auto deployment script, cd from the root into the back-end
+```shell
+$ cd website/back-end/
+```
+Then run the deployment script with 
+```shell
+$ ./deploy.sh
+```
+If for some reason it tells you the file doesn't have execute permission, run the following command then try again
+```shell
+$ chmod +x deploy.sh
+```
+
+### Manual deployment
+If the deployment script no longer work, these are the steps to fully deploy both backend and front end
+
+#### Front end deployment
+```shell
+$ cd website/front-end/  # go to the front end folder
+$ git checkout master  # change branch to the master branch
+$ git pull  # pull new code if any
+$ npm build  # this bundles the files
+```
+
+#### Back end deployment
+```shell
+$ cd website/back-end/  # go to the back end folder
+$ git checkout master  # change branch to the master branch
+$ git pull  # pull new code if any
+$ source env/bin/activate  # activate the virtual environment
+$ pip install -r requirements.txt  # install new requirements if any
+$ python manage.py collectstatic --noinput  # collect static files (images, html, css, etc...)
+$ python manage.py migrate  # run new migration files if any
+$ python manage.py runserver 0.0.0.0:8000  # runserver on port 8000
+```
 ## Built with
 - Django: [a server framework for python](https://www.djangoproject.com/)
 - Sqlite: [small imbeded database](https://www.sqlite.org/index.html)
