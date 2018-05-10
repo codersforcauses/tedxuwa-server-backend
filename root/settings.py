@@ -180,49 +180,49 @@ if DEPLOYMENT == "PRODUCTION":
         # https://github.com/getsentry/raven-python/issues/855
         'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
     }
-# intergrate with logging to send errors to sentry automatically
-# https://docs.sentry.io/clients/python/integrations/django/#integration-with-logging
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': DEPLOYMENT == "PRODUCTION",
-    'root': {
-        'level': 'WARNING',
-        'handlers': ['sentry'],
-    },
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s '
-                      '%(process)d %(thread)d %(message)s'
-        },
-    },
-    'handlers': {
-        'sentry': {
-            # To capture more than ERROR, change to WARNING, INFO, etc.
+    # intergrate with logging to send errors to sentry automatically
+    # https://docs.sentry.io/clients/python/integrations/django/#integration-with-logging
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': DEPLOYMENT == "PRODUCTION",
+        'root': {
             'level': 'WARNING',
-            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
-            'tags': {'custom-tag': 'x'},
+            'handlers': ['sentry'],
         },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
-        }
-    },
-    'loggers': {
-        'django.db.backends': {
-            'level': 'WARNING',
-            'handlers': ['console'],
-            'propagate': False,
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s '
+                '%(process)d %(thread)d %(message)s'
+            },
         },
-        'raven': {
-            'level': 'DEBUG',
-            'handlers': ['console'],
-            'propagate': False,
+        'handlers': {
+            'sentry': {
+                # To capture more than ERROR, change to WARNING, INFO, etc.
+                'level': 'WARNING',
+                'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+                'tags': {'custom-tag': 'x'},
+            },
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose'
+            }
         },
-        'sentry.errors': {
-            'level': 'DEBUG',
-            'handlers': ['console'],
-            'propagate': False,
+        'loggers': {
+            'django.db.backends': {
+                'level': 'WARNING',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'raven': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'sentry.errors': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
         },
-    },
-}
+    }
