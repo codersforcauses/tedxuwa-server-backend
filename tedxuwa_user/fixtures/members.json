@@ -5,9 +5,7 @@
         "fields": {
             "first_name": "Anh",
             "last_name": "Le",
-            "bio": "tomato",
-            "profile_picture_url": null,
-            "is_comittee": true
+            "profile_picture_url": null
         }
     },
     {
@@ -16,9 +14,7 @@
         "fields": {
             "first_name": "Past",
             "last_name": "Member",
-            "bio": "capsicum",
-            "profile_picture_url": null,
-            "is_comittee": false
+            "profile_picture_url": null
         }
     }
 ]

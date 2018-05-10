@@ -1,0 +1,1 @@
+[{"model": "tedxuwa_user.committeemember", "pk": 1, "fields": {"member": 1, "position": "Technology", "bio": "", "linkedin_url": ""}}, {"model": "tedxuwa_user.committeemember", "pk": 2, "fields": {"member": 2, "position": "Something", "bio": "", "linkedin_url": ""}}]
