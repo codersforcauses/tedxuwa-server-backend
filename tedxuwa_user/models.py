@@ -10,14 +10,34 @@ class User(AbstractUser):
 class Member(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, blank=True)
-    bio = models.TextField(blank=True, default="")
+    email = models.EmailField(blank=True)
     profile_picture_url = models.URLField(blank=True, null=True)
-    is_comittee = models.BooleanField(
-        default=True, help_text="whether or not this member is a current comittee member")
 
     @property
     def name(self):
         return "{} {}".format(self.first_name, self.last_name)
 
+    @property
+    def is_committee_member(self):
+        # return whether or not this member is a committee member
+        try:
+            self.committee
+            return True
+        except CommitteeMember.DoesNotExist:
+            return False
+
     def __str__(self):
         return self.name
+
+
+class CommitteeMember(models.Model):
+    member = models.OneToOneField(Member, on_delete=models.CASCADE,
+                                  related_name="committee")
+    position = models.CharField(max_length=255)
+    bio = models.TextField(blank=True, default="")
+    linkedin_url = models.URLField(blank=True)
+
+    def __str__(self):
+        return "{}:{}".format(
+            self.position, self.member.__str__()
+        )
