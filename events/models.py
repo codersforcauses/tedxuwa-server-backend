@@ -38,16 +38,22 @@ class Event(models.Model):
         return self.name
 
 
-class EventSignup(models.Model):
+class EventTicket(models.Model):
     """Keep track of who signed up for an event. Anyone who signed up for
     an event is automatically a member. Expand on this model as we get more
     analytics"""
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     member = models.ForeignKey("tedxuwa_user.Member", on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(
+        default=1, help_text="how many tickets did they buy")
+    checked_in = models.BooleanField(default=False,
+                                     help_text="whether or not they actually checked into the event")
+    booking_method = models.CharField(blank=True, default="", max_length=255,
+                                      help_text="how the person purchased the ticket")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "{}:{}".format(
-            self.member.__str__(), self.event.__str__()
+        return "{} x {}:{}".format(
+            self.quantity, self.member.__str__(), self.event.__str__()
         )
