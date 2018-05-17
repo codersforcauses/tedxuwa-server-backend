@@ -5,15 +5,15 @@
 
 # THIS ASSUME YOU'RE IN THE /
 
-# clear all screens
-pkill screen
 # front end deployment
 cd ../front-end/
-git checkout origin/master
-npm build
+git checkout master
+git pull
+npm run build
 # back end deployment
 cd ../back-end/
-git checkout origin/master
+git checkout master
+git pull
 source env/bin/activate
 pip install -r requirements.txt
 python manage.py collectstatic --noinput  # collect front end
