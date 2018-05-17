@@ -46,6 +46,10 @@ class EventTicket(models.Model):
     member = models.ForeignKey("tedxuwa_user.Member", on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(
         default=1, help_text="how many tickets did they buy")
+    checked_in = models.BooleanField(default=False,
+                                     help_text="whether or not they actually checked into the event")
+    booking_method = models.CharField(blank=True, default="", max_length=255,
+                                      help_text="how the person purchased the ticket")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
