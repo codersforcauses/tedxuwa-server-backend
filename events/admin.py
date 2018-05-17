@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, EventSignup
+from .models import Event, EventTicket
 
 # Register your models here.
 
@@ -9,6 +9,6 @@ class EventAdmin(admin.ModelAdmin):
     model = Event
 
 
-@admin.register(EventSignup)
-class EventSignupAdmin(admin.ModelAdmin):
-    model = EventSignup
+@admin.register(EventTicket)
+class EventTicketAdmin(admin.ModelAdmin):
+    model = EventTicket
