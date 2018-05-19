@@ -49,7 +49,7 @@ class Command(BaseCommand):
                         event=event,
                         defaults={
                             "quantity": ticket[QUANTITY],
-                            "checked_in": True if int(ticket[CHECKED_IN]) == 1 else False,
+                            "checked_in": True if str(ticket[CHECKED_IN]) == "1" else False,
                             "booking_method": ticket[BOOKING_METHOD]
                         }
                     )
