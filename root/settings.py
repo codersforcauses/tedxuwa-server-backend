@@ -42,8 +42,10 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY",
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DEPLOYMENT != "PRODUCTION"
+DEBUG = True
 ALLOWED_HOSTS = [
     "tedxuwa.com",
+    "www.tedxuwa.com",
     "localhost:8000"
 ]
 
@@ -205,7 +207,7 @@ if DEPLOYMENT == "PRODUCTION":
                 'tags': {'custom-tag': 'x'},
             },
             'console': {
-                'level': 'DEBUG',
+                'level': 'WARNING',
                 'class': 'logging.StreamHandler',
                 'formatter': 'verbose'
             }
@@ -222,7 +224,7 @@ if DEPLOYMENT == "PRODUCTION":
                 'propagate': False,
             },
             'sentry.errors': {
-                'level': 'DEBUG',
+                'level': 'WARNING',
                 'handlers': ['console'],
                 'propagate': False,
             },
