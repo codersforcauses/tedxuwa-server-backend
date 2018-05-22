@@ -117,6 +117,7 @@ DATABASES = {
 CORS_ORIGIN_WHITELIST = (
     'google.com',
     'tedxuwa.com',
+    'www.tedxuwa.com',
     'localhost:8000',
     '127.0.0.1:8000',
     '127.0.0.1:3000',
@@ -226,6 +227,10 @@ if DEPLOYMENT == "PRODUCTION":
             'sentry.errors': {
                 'level': 'ERROR',
                 'handlers': ['console'],
+                'propagate': False,
+            },
+            'django.security.DisallowedHost': {
+                'handlers': ['null'],
                 'propagate': False,
             },
         },
