@@ -211,7 +211,11 @@ if DEPLOYMENT == "PRODUCTION":
                 'level': 'ERROR',
                 'class': 'logging.StreamHandler',
                 'formatter': 'verbose'
-            }
+            },
+            'null': {
+                'level': 'DEBUG',
+                'class': 'logging.NullHandler',
+            },
         },
         'loggers': {
             'django.db.backends': {
