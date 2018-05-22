@@ -188,7 +188,7 @@ if DEPLOYMENT == "PRODUCTION":
         'version': 1,
         'disable_existing_loggers': DEPLOYMENT == "PRODUCTION",
         'root': {
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'handlers': ['sentry'],
         },
         'formatters': {
