@@ -160,7 +160,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # REST framework settings
 REST_FRAMEWORK = {
@@ -186,7 +186,7 @@ if DEPLOYMENT == "PRODUCTION":
         'version': 1,
         'disable_existing_loggers': DEPLOYMENT == "PRODUCTION",
         'root': {
-            'level': 'WARNING',
+            'level': 'DEBUG',
             'handlers': ['sentry'],
         },
         'formatters': {
@@ -210,7 +210,7 @@ if DEPLOYMENT == "PRODUCTION":
         },
         'loggers': {
             'django.db.backends': {
-                'level': 'WARNING',
+                'level': 'DEBUG',
                 'handlers': ['console'],
                 'propagate': False,
             },
