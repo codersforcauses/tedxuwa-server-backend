@@ -202,7 +202,7 @@ if DEPLOYMENT == "PRODUCTION":
         'handlers': {
             'sentry': {
                 # To capture more than ERROR, change to WARNING, INFO, etc.
-                'level': 'WARNING',
+                'level': 'ERROR',
                 'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
                 'tags': {'custom-tag': 'x'},
             },
@@ -214,12 +214,12 @@ if DEPLOYMENT == "PRODUCTION":
         },
         'loggers': {
             'django.db.backends': {
-                'level': 'DEBUG',
+                'level': 'WARNING',
                 'handlers': ['console'],
                 'propagate': False,
             },
             'raven': {
-                'level': 'DEBUG',
+                'level': 'WARNING',
                 'handlers': ['console'],
                 'propagate': False,
             },
