@@ -108,3 +108,4 @@ static/
 
 # secret file
 secrets.txt
+\.idea/
