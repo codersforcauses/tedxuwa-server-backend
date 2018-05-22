@@ -27,7 +27,6 @@ if DEPLOYMENT == "PRODUCTION":
     FRONTEND_ENTRY_POINT = os.path.join(FRONTEND_FOLDER_DIR, "index.html")
     STATICFILES_DIRS = (
         FRONTEND_TEMPLATE_DIR,
-        FRONTEND_STATIC_DIR,
     )
 else:
     FRONTEND_TEMPLATE_DIR = ""
@@ -85,7 +84,7 @@ ROOT_URLCONF = 'root.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [FRONTEND_TEMPLATE_DIR],
+        'DIRS': ["static/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
