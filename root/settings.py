@@ -25,7 +25,7 @@ if DEPLOYMENT == "PRODUCTION":
     FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
     FRONTEND_STATIC_DIR = os.path.join(BASE_DIR, "static/")
     FRONTEND_ENTRY_POINT = os.path.join(
-        FRONTEND_STATIC_DIR, "static/index.html")
+        FRONTEND_STATIC_DIR, "index.html")
     STATICFILES_DIRS = (
         FRONTEND_TEMPLATE_DIR,
     )
