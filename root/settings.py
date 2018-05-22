@@ -41,7 +41,6 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY",
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DEPLOYMENT != "PRODUCTION"
-DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 
@@ -159,7 +158,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # REST framework settings
 REST_FRAMEWORK = {
