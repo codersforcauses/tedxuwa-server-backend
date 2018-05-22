@@ -190,7 +190,7 @@ if DEPLOYMENT == "PRODUCTION":
         'version': 1,
         'disable_existing_loggers': DEPLOYMENT == "PRODUCTION",
         'root': {
-            'level': 'WARNING',
+            'level': 'ERROR',
             'handlers': ['sentry'],
         },
         'formatters': {
@@ -207,24 +207,24 @@ if DEPLOYMENT == "PRODUCTION":
                 'tags': {'custom-tag': 'x'},
             },
             'console': {
-                'level': 'WARNING',
+                'level': 'ERROR',
                 'class': 'logging.StreamHandler',
                 'formatter': 'verbose'
             }
         },
         'loggers': {
             'django.db.backends': {
-                'level': 'WARNING',
+                'level': 'ERROR',
                 'handlers': ['console'],
                 'propagate': False,
             },
             'raven': {
-                'level': 'WARNING',
+                'level': 'ERROR',
                 'handlers': ['console'],
                 'propagate': False,
             },
             'sentry.errors': {
-                'level': 'WARNING',
+                'level': 'ERROR',
                 'handlers': ['console'],
                 'propagate': False,
             },
