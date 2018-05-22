@@ -26,9 +26,9 @@ router = DefaultRouter()
 router.register(r'^events', EventViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
-    path('admin/', admin.site.urls),
-    path('api/committee/', CommitteeListView.as_view()),
+    # path('api/', include(router.urls)),
+    # path('admin/', admin.site.urls),
+    # path('api/committee/', CommitteeListView.as_view()),
     # https://medium.com/@nicholaskajoh/heres-a-dead-simple-react-django-setup-for-your-next-project-c0b0036663c6
     re_path('.*', TemplateView.as_view(template_name=settings.FRONTEND_ENTRY_POINT)),
 ]
