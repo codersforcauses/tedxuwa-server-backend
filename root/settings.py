@@ -30,6 +30,7 @@ if DEPLOYMENT == "PRODUCTION":
         FRONTEND_TEMPLATE_DIR,
     )
 else:
+    FRONTEND_STATIC_DIR = ""
     FRONTEND_TEMPLATE_DIR = ""
     FRONTEND_ENTRY_POINT = ""
 
@@ -63,6 +64,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'rest_framework',
+    'main',
     'tedxuwa_user',
     'events',
 ]
