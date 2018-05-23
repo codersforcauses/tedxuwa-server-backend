@@ -21,7 +21,7 @@ from rest_framework.routers import DefaultRouter
 
 from events.views import EventViewSet
 from tedxuwa_user.views import CommitteeListView
-from main.views import ReactAppView
+from main.views import ReactAppView, rate_limited_react_view
 
 router = DefaultRouter()
 router.register(r'^events', EventViewSet)
@@ -31,5 +31,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/committee/', CommitteeListView.as_view()),
     # https://medium.com/@nicholaskajoh/heres-a-dead-simple-react-django-setup-for-your-next-project-c0b0036663c6
-    re_path('.*', ReactAppView.as_view()),
+    # re_path('.*', ReactAppView.as_view()),
+    re_path('.*', rate_limited_react_view),
 ]

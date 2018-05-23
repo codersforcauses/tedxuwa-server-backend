@@ -31,8 +31,9 @@ if DEPLOYMENT == "PRODUCTION":
     )
 else:
     FRONTEND_STATIC_DIR = ""
-    FRONTEND_TEMPLATE_DIR = ""
-    FRONTEND_ENTRY_POINT = ""
+    FRONTEND_TEMPLATE_DIR = os.path.abspath(
+        os.path.join(BASE_DIR, "../tedxuwa-react/public/"))
+    FRONTEND_ENTRY_POINT = FRONTEND_TEMPLATE_DIR + "/index.html"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -86,7 +87,7 @@ ROOT_URLCONF = 'root.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [FRONTEND_STATIC_DIR],
+        'DIRS': [FRONTEND_STATIC_DIR] if DEPLOYMENT == "PRODUCTION" else [FRONTEND_TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -173,6 +174,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 50
 }
+
+
+RATELIMIT_ENABLE = True
 
 
 # Sentry configs
