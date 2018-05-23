@@ -46,7 +46,7 @@ DEBUG = DEPLOYMENT != "PRODUCTION"
 # DEBUG = True
 ALLOWED_HOSTS = [
     ".tedxuwa.com",
-    "localhost:8000"
+    "localhost",
 ]
 
 
