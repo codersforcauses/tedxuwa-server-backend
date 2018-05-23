@@ -44,8 +44,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY",
 DEBUG = DEPLOYMENT != "PRODUCTION"
 # DEBUG = True
 ALLOWED_HOSTS = [
-    "tedxuwa.com",
-    "www.tedxuwa.com",
+    ".tedxuwa.com",
     "localhost:8000"
 ]
 
