@@ -87,7 +87,7 @@ ROOT_URLCONF = 'root.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [FRONTEND_STATIC_DIR] if DEPLOYMENT == "PRODUCTION" else [FRONTEND_TEMPLATE_DIR],
+        'DIRS': ["static/"] if DEPLOYMENT == "PRODUCTION" else [FRONTEND_TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
