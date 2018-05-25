@@ -17,6 +17,5 @@ class ReactAppView(TemplateView, RatelimitMixin):
     ratelimit_block = True
 
 
-@ratelimit(key='ip', block=True, rate="15/m")
 def rate_limited_react_view(request):
     return render(request, settings.FRONTEND_ENTRY_POINT)

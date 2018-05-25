@@ -33,10 +33,17 @@ if DEPLOYMENT == "PRODUCTION":
         FRONTEND_STATIC_FILES
     )
 else:
-    FRONTEND_STATIC_DIR = ""
-    FRONTEND_TEMPLATE_DIR = os.path.abspath(
-        os.path.join(BASE_DIR, "../tedxuwa-react/public/"))
-    FRONTEND_ENTRY_POINT = FRONTEND_TEMPLATE_DIR + "/index.html"
+    FRONTEND_FOLDER_DIR = os.path.abspath(
+        os.path.join(BASE_DIR, "../tedxuwa-react/"))
+    FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
+    FRONTEND_STATIC_DIR = os.path.join(BASE_DIR, "static/")
+    FRONTEND_STATIC_FILES = os.path.join(FRONTEND_STATIC_DIR, "static/")
+    FRONTEND_ENTRY_POINT = os.path.join(
+        FRONTEND_STATIC_DIR, "index.html")
+    STATICFILES_DIRS = (
+        FRONTEND_TEMPLATE_DIR,
+        FRONTEND_STATIC_FILES
+    )
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -94,7 +101,7 @@ ROOT_URLCONF = 'root.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [FRONTEND_STATIC_DIR] if DEPLOYMENT == "PRODUCTION" else [FRONTEND_TEMPLATE_DIR],
+        'DIRS': [FRONTEND_STATIC_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
