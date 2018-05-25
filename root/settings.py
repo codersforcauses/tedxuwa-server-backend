@@ -185,7 +185,8 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # other path settings
-UPLOADED_MEDIA_PATH = os.path.join(STATIC_ROOT, "uploaded_media")
+# must be relative not absolute path
+UPLOADED_MEDIA_PATH = "static/uploaded_media"
 
 
 # REST framework settings
