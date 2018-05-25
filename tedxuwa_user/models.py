@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
 
@@ -12,6 +13,8 @@ class Member(models.Model):
     last_name = models.CharField(max_length=255, blank=True)
     email = models.EmailField(blank=True)
     profile_picture_url = models.URLField(blank=True, null=True)
+    profile_picture = models.ImageField(
+        blank=True, upload_to=settings.UPLOADED_MEDIA_PATH)
 
     @property
     def name(self):
