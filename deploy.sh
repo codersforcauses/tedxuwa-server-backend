@@ -6,35 +6,35 @@
 # THIS ASSUME YOU'RE IN /website
 
 # front end deployment
-echo -n PULLING NEW FRONT END CODE...\ 
+echo PULLING NEW FRONT END CODE...
 cd front-end/
 git checkout master
 git pull
 echo [OK]
 
-echo -n BUILDING FRON END CODE...\ 
+echo BUILDING FRON END CODE...
 npm run build
 echo [OK]
 
 # back end deployment
-echo -n PULLING NEW BACK END CODE...\ 
+echo PULLING NEW BACK END CODE...
 cd ../back-end/
 git checkout master
 git pull
 echo [OK]
 
-echo -n INSTALLING REQUIREMENTS...\ 
+echo INSTALLING REQUIREMENTS...
 source env/bin/activate
 pip install -r requirements.txt
 echo [OK]
 
-echo -n COLLECTING STATIC FILES...\ 
+echo COLLECTING STATIC FILES...
 python manage.py collectstatic --noinput --clear
 echo [OK]
 
-echo -n RUNNING MIGRATIONS...\ 
+echo RUNNING MIGRATIONS...
 python manage.py migrate  # migrate the database
 echo [OK]
 
-echo -n STARTING SERVER...\ 
+echo STARTING SERVER...
 python manage.py runserver 0.0.0.0:80  # start the server on port 8000
