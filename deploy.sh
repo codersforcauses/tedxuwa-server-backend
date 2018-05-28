@@ -12,7 +12,7 @@ git checkout master
 git pull
 echo [OK]
 
-echo BUILDING FRON END CODE...
+echo BUILDING FRONT END CODE...
 npm run build
 echo [OK]
 
