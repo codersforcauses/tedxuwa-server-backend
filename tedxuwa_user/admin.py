@@ -13,11 +13,14 @@ class EventTicketInline(admin.TabularInline):
 class MemberAdmin(admin.ModelAdmin):
     model = Member
     inlines = [EventTicketInline]
+    search_fields = ('first_name', 'last_name')
 
 
 @admin.register(CommitteeMember)
 class MemberAdmin(admin.ModelAdmin):
     model = CommitteeMember
+    search_fields = ('member__first_name', 'member__last_name',
+                     'position')
 
 
 admin.site.register(User, UserAdmin)

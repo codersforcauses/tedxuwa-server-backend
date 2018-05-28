@@ -23,27 +23,16 @@ DEPLOYMENT = os.environ.get("DEPLOYMENT", "LOCAL")
 if DEPLOYMENT == "PRODUCTION":
     FRONTEND_FOLDER_DIR = os.path.abspath(
         os.path.join(BASE_DIR, "../front-end/"))
-    FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
-    FRONTEND_STATIC_DIR = os.path.join(BASE_DIR, "static/")
-    FRONTEND_STATIC_FILES = os.path.join(FRONTEND_STATIC_DIR, "static/")
-    FRONTEND_ENTRY_POINT = os.path.join(
-        FRONTEND_STATIC_DIR, "index.html")
-    STATICFILES_DIRS = (
-        FRONTEND_TEMPLATE_DIR,
-        FRONTEND_STATIC_FILES
-    )
 else:
     FRONTEND_FOLDER_DIR = os.path.abspath(
         os.path.join(BASE_DIR, "../tedxuwa-react/"))
-    FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
-    FRONTEND_STATIC_DIR = os.path.join(BASE_DIR, "static/")
-    FRONTEND_STATIC_FILES = os.path.join(FRONTEND_STATIC_DIR, "static/")
-    FRONTEND_ENTRY_POINT = os.path.join(
-        FRONTEND_STATIC_DIR, "index.html")
-    STATICFILES_DIRS = (
-        FRONTEND_TEMPLATE_DIR,
-        FRONTEND_STATIC_FILES
-    )
+
+FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
+FRONTEND_STATIC_DIR = os.path.join(BASE_DIR, "static/")
+FRONTEND_STATIC_FILES = os.path.join(FRONTEND_STATIC_DIR, "static/")
+FRONTEND_ENTRY_POINT = os.path.join(
+    FRONTEND_STATIC_DIR, "index.html")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -182,6 +171,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+STATICFILES_DIRS = (
+    FRONTEND_TEMPLATE_DIR,
+    FRONTEND_STATIC_FILES,
+    os.path.abspath(os.path.join(BASE_DIR, UPLOADED_MEDIA_PATH)) + "/",
+)
+
 
 # REST framework settings
 REST_FRAMEWORK = {
