@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.views.generic import TemplateView
+from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 
 from events.views import EventViewSet
@@ -27,6 +28,8 @@ router = DefaultRouter()
 router.register(r'^events', EventViewSet)
 
 urlpatterns = [
+    path('favicon.ico', RedirectView.as_view(url="{}favicon.ico".format(
+        settings.STATIC_URL), permanent=True)),
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api/committee/', CommitteeListView.as_view()),

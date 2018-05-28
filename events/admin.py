@@ -7,6 +7,7 @@ from .models import Event, EventTicket
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     model = Event
+    search_fields = ('name',)
 
 
 @admin.register(EventTicket)
