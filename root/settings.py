@@ -23,27 +23,15 @@ DEPLOYMENT = os.environ.get("DEPLOYMENT", "LOCAL")
 if DEPLOYMENT == "PRODUCTION":
     FRONTEND_FOLDER_DIR = os.path.abspath(
         os.path.join(BASE_DIR, "../front-end/"))
-    FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
-    FRONTEND_STATIC_DIR = os.path.join(BASE_DIR, "static/")
-    FRONTEND_STATIC_FILES = os.path.join(FRONTEND_STATIC_DIR, "static/")
-    FRONTEND_ENTRY_POINT = os.path.join(
-        FRONTEND_STATIC_DIR, "index.html")
-    STATICFILES_DIRS = (
-        FRONTEND_TEMPLATE_DIR,
-        FRONTEND_STATIC_FILES
-    )
 else:
     FRONTEND_FOLDER_DIR = os.path.abspath(
         os.path.join(BASE_DIR, "../tedxuwa-react/"))
-    FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
-    FRONTEND_STATIC_DIR = os.path.join(BASE_DIR, "static/")
-    FRONTEND_STATIC_FILES = os.path.join(FRONTEND_STATIC_DIR, "static/")
-    FRONTEND_ENTRY_POINT = os.path.join(
-        FRONTEND_STATIC_DIR, "index.html")
-    STATICFILES_DIRS = (
-        FRONTEND_TEMPLATE_DIR,
-        FRONTEND_STATIC_FILES
-    )
+
+FRONTEND_TEMPLATE_DIR = os.path.join(FRONTEND_FOLDER_DIR, "build/")
+FRONTEND_STATIC_DIR = os.path.join(BASE_DIR, "static/")
+FRONTEND_STATIC_FILES = os.path.join(FRONTEND_STATIC_DIR, "static/")
+FRONTEND_ENTRY_POINT = os.path.join(
+    FRONTEND_STATIC_DIR, "index.html")
 
 
 # Quick-start development settings - unsuitable for production
@@ -186,7 +174,14 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 
 # other path settings
 # must be relative not absolute path
-UPLOADED_MEDIA_PATH = "static/uploaded_media"
+UPLOADED_MEDIA_PATH = "static/uploaded_media/"
+
+STATICFILES_DIRS = (
+    FRONTEND_TEMPLATE_DIR,
+    FRONTEND_STATIC_FILES,
+    os.path.abspath(os.path.join(BASE_DIR, UPLOADED_MEDIA_PATH)) + "/",
+)
+print(STATICFILES_DIRS)
 
 
 # REST framework settings
