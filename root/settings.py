@@ -176,7 +176,6 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 STATICFILES_DIRS = (
     FRONTEND_TEMPLATE_DIR,
     FRONTEND_STATIC_FILES,
-    os.path.abspath(os.path.join(BASE_DIR, UPLOADED_MEDIA_PATH)) + "/",
 )
 
 
