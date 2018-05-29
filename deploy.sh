@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # This is a manual deployment script for ease of life. Would be much
 # better if we have an auto deployment system like git hooks
 # but I haven't been able to set it up yet
