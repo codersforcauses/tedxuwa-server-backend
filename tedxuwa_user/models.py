@@ -36,8 +36,12 @@ class CommitteeMember(models.Model):
     position = models.CharField(max_length=255)
     bio = models.TextField(blank=True, default="")
     linkedin_url = models.URLField(blank=True)
+    order = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return "{}:{}".format(
             self.position, self.member.__str__()
         )
+
+    class Meta:
+        ordering = ["order"]
