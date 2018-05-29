@@ -14,4 +14,5 @@ class CommitteeMemberSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CommitteeMember
-        fields = ("id", "member", "position", "bio", "linkedin_url")
+        fields = ("id", "member", "position", "bio", "linkedin_url",
+                  "order")
