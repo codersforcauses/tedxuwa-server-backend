@@ -37,6 +37,9 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ["-start"]
+
 
 class EventTicket(models.Model):
     """Keep track of who signed up for an event. Anyone who signed up for
