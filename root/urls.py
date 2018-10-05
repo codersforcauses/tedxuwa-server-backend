@@ -24,6 +24,8 @@ from events.views import EventViewSet
 from tedxuwa_user.views import CommitteeListView
 from main.views import ReactAppView, rate_limited_react_view
 
+admin.site.site_header = "TEDxUWA Administration"
+
 router = DefaultRouter()
 router.register(r'^events', EventViewSet)
 
