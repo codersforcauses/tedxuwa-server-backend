@@ -15,7 +15,6 @@ import raven
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 DEPLOYMENT = os.environ.get("DEPLOYMENT", "LOCAL")
 
 # Frontend settings
@@ -46,6 +45,7 @@ DEBUG = DEPLOYMENT != "PRODUCTION"
 ALLOWED_HOSTS = [
     ".tedxuwa.com",
     "localhost",
+    "178.128.85.252"
 ]
 
 
