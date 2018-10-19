@@ -19,3 +19,12 @@ class ReactAppView(TemplateView, RatelimitMixin):
 
 def rate_limited_react_view(request):
     return render(request, settings.FRONTEND_ENTRY_POINT)
+
+
+def robotstxt_view(request):
+    # tell scrapers not to scrape admin
+    content = """
+User-agent: *
+Disallow: /admin/
+"""
+    return HttpResponse(content, content_type="text/plain")
