@@ -14,6 +14,13 @@ class EventViewSet(ReadOnlyModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
+    def get_queryset(self):
+        # if "?featured" flag is present, only show featured events
+        flags = self.request.query_params.dict().keys()
+        if "featured" in flags:
+            self.queryset = self.queryset.filter(featured=True)
+        return self.queryset
+
 
 class SpeakerViewset(ListAPIView):
     # only allow listing and fetching single
