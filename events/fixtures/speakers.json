@@ -1,0 +1,16 @@
+[
+    {
+        "model": "events.speaker",
+        "pk": 1,
+        "fields": {
+            "name": "Test speaker",
+            "profile_image": "",
+            "bio": "tomato",
+            "created": "2018-10-20T02:58:19.420Z",
+            "updated": "2018-10-20T02:58:19.420Z",
+            "events": [
+                1
+            ]
+        }
+    }
+]
