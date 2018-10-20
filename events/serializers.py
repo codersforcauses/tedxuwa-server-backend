@@ -12,5 +12,5 @@ class EventSerializer(serializers.ModelSerializer):
 class SpeakerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Speaker
-        fields = ("id", "event", "name", "profile_image",
+        fields = ("id", "events", "name", "profile_image",
                   "bio")
