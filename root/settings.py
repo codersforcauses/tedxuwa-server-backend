@@ -52,6 +52,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    # django stuff
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,12 +60,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
-
+    # packages
     'raven.contrib.django.raven_compat',
     'corsheaders',
-
+    'admincolors',
     'rest_framework',
     'sslserver',
+    # user written
     'main',
     'tedxuwa_user',
     'events',
@@ -84,10 +86,19 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'root.urls'
 
+ADMIN_COLORS_BASE_THEME = 'TED Red'
+ADMIN_COLORS = [
+    ('Default', []),
+    ('TED Red', 'admin_colours.css'),
+    ('Lite', 'admincolors/css/lite.css'),
+    ('Dark Blue', 'admincolors/css/dark-blue.css'),
+    ('Gray', 'admincolors/css/gray.css')
+]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [FRONTEND_STATIC_DIR],
+        'DIRS': [FRONTEND_STATIC_DIR,
+                 os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -95,6 +106,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'admincolors.context_processors.admin_theme',
             ],
         },
     },
@@ -173,6 +185,7 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 STATICFILES_DIRS = (
     FRONTEND_TEMPLATE_DIR,
     FRONTEND_STATIC_FILES,
+    "root/common_static/"  # general static files
 )
 
 
