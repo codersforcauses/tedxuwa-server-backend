@@ -8,7 +8,8 @@ from .models import Event, EventTicket, Speaker
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     model = Event
-    search_fields = ('name',)
+    search_fields = ("name",)
+    list_filter = ("event_type", "featured")
 
 
 @admin.register(EventTicket)
@@ -20,4 +21,4 @@ class EventTicketAdmin(admin.ModelAdmin):
 class SpeakerAdmin(admin.ModelAdmin):
     model = Speaker
     filter_horizontal = ("events",)
-    search_fields = ('name', 'events__name')
+    search_fields = ("name", "events__name")
