@@ -21,7 +21,7 @@ from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 
-from events.views import EventViewSet
+from events.views import EventViewSet, SpeakerViewset
 from tedxuwa_user.views import CommitteeListView
 from main.views import ReactAppView, rate_limited_react_view, robotstxt_view
 from root.sitemaps import sitemaps
@@ -34,9 +34,12 @@ router.register(r'^events', EventViewSet)
 urlpatterns = [
     path('favicon.ico', RedirectView.as_view(url="{}favicon.ico".format(
         settings.STATIC_URL), permanent=True)),
-    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
+    # api views
+    path('api/', include(router.urls)),
     path('api/committee/', CommitteeListView.as_view()),
+    path('api/events/<int:event_id>/speakers/', SpeakerViewset.as_view()),
+    # others
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', robotstxt_view),
