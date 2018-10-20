@@ -60,3 +60,16 @@ class EventTicket(models.Model):
         return "{} x {}:{}".format(
             self.quantity, self.member.__str__(), self.event.__str__()
         )
+
+
+class Speaker(models.Model):
+    event = models.ManyToManyField(Event, related_name="speakers",
+                                   help_text="which event(s) this speaker is a part of")
+    name = models.CharField(max_length=255)
+    profile_image = models.URLField(blank=True)
+    bio = models.TextField(blank=True, default="")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
