@@ -63,8 +63,8 @@ class EventTicket(models.Model):
 
 
 class Speaker(models.Model):
-    event = models.ManyToManyField(Event, related_name="speakers",
-                                   help_text="which event(s) this speaker is a part of")
+    events = models.ManyToManyField(Event, related_name="speakers",
+                                    help_text="which event(s) this speaker is a part of")
     name = models.CharField(max_length=255)
     profile_image = models.URLField(blank=True)
     bio = models.TextField(blank=True, default="")
