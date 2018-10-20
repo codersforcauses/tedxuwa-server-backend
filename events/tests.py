@@ -13,7 +13,19 @@ class TestEventEndpoint(TestCase):
     def test_endpoint(self):
         re = self.c.get("/api/events/")
         self.assertEqual(re.status_code, 200)
-        self.assertEqual(re.json()["count"], 1)
+        self.assertEqual(re.json()["count"], Event.objects.count())
+
+    def test_featured_only(self):
+        # if ?featured is there, only get featured events
+        Event.objects.all().update(featured=False)
+        re = self.c.get("/api/events/?featured")
+        self.assertEqual(re.status_code, 200)
+        self.assertEqual(re.json()["count"], 0)
+        # make everything featured
+        Event.objects.all().update(featured=True)
+        re = self.c.get("/api/events/?featured")
+        self.assertEqual(re.status_code, 200)
+        self.assertEqual(re.json()["count"], Event.objects.count())
 
 
 class TestSpeakerEndpoint(TestCase):
