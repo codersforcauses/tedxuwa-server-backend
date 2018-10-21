@@ -37,4 +37,6 @@ python manage.py migrate  # migrate the database
 echo [OK]
 
 echo STARTING SERVER...
-python manage.py runserver 0.0.0.0:80  # start the server on port 8000
+# run 2 server. 1 at http to redirect to https and one at https
+python manage.py runserver 0.0.0.0:80  # start the server on port
+screen -dm python manage.py runsslserver --certificate ../certs/fullchain.pem  --key ../certs/privkey.pem 0.0.0.0:443
