@@ -45,7 +45,6 @@ DEBUG = DEPLOYMENT != "PRODUCTION"
 ALLOWED_HOSTS = [
     ".tedxuwa.com",
     "localhost",
-    "178.128.85.252"
 ]
 
 

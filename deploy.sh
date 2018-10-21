@@ -37,4 +37,4 @@ python manage.py migrate  # migrate the database
 echo [OK]
 
 echo STARTING SERVER...
-python manage.py runserver 0.0.0.0:80  # start the server on port 8000
+python manage.py runserver 0.0.0.0:80  # start the server on port
