@@ -13,4 +13,4 @@ class SpeakerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Speaker
         fields = ("id", "events", "name", "profile_image",
-                  "bio")
+                  "tag_line", "bio")

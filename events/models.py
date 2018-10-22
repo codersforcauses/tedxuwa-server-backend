@@ -67,6 +67,8 @@ class Speaker(models.Model):
                                     help_text="which event(s) this speaker is a part of")
     name = models.CharField(max_length=255)
     profile_image = models.URLField(blank=True)
+    tag_line = models.CharField(max_length=255, blank=True,
+                                default="")
     bio = models.TextField(blank=True, default="")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
