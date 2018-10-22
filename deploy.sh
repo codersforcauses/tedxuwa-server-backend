@@ -37,4 +37,5 @@ python manage.py migrate  # migrate the database
 echo [OK]
 
 echo STARTING SERVER...
-python manage.py runserver 0.0.0.0:80  # start the server on port
+# run https server, apache redirect 80 to 443
+python manage.py runsslserver --certificate ../certs/fullchain.pem  --key ../certs/privkey.pem 0.0.0.0:443
