@@ -179,7 +179,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+# set 1 year browser cache
+WHITENOISE_MAX_AGE = 31536000
 
 STATICFILES_DIRS = (
     FRONTEND_TEMPLATE_DIR,
