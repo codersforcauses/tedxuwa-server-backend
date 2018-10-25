@@ -37,5 +37,4 @@ python manage.py migrate  # migrate the database
 echo [OK]
 
 echo STARTING SERVER...
-python manage.py runserver 0.0.0.0:80
-uwsgi --http :8000 --module root.wsgi --home env
+uwsgi --http :8001 --module root.wsgi --home env
