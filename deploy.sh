@@ -3,7 +3,7 @@
 # better if we have an auto deployment system like git hooks
 # but I haven't been able to set it up yet
 
-# THIS ASSUME YOU'RE IN /website
+cd ~/website
 
 # front end deployment
 echo PULLING NEW FRONT END CODE...
@@ -26,6 +26,10 @@ echo [OK]
 echo UPDATING NGINX CONFIG...
 cp ./tedxuwa_nginx.conf /etc/nginx/sites-available/default
 sudo /etc/init.d/nginx restart 
+echo [OK]
+
+echo UPDATING DEPLOYMENT SCRIPT...
+cp deploy.sh ../
 echo [OK]
 
 echo INSTALLING REQUIREMENTS...
