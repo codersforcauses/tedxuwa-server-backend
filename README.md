@@ -86,6 +86,8 @@ $ ./deploy.sh
 If deploy.sh doesn't have the permission to run, do `chmod +x deploy.sh` first then try again. If that still
 doesn't work, open up the file and copy paste the commands inside
 
+**NOTE:** If you made a change to the deployment script, running `./deploy.sh` once will update the deployment script file on the server and running it a second time will make the changes take effect
+
 ## Built with
 - Django: [a server framework for python](https://www.djangoproject.com/)
 - Nginx: [webserver](https://www.nginx.com/)
