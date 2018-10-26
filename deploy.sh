@@ -23,6 +23,10 @@ git checkout master
 git pull
 echo [OK]
 
+echo UPDATING NGINX CONFIG...
+cp ./tedxuwa_nginx.conf /etc/nginx/sites-available/default
+echo [OK]
+
 echo INSTALLING REQUIREMENTS...
 source env/bin/activate
 pip install -r requirements.txt
@@ -37,4 +41,4 @@ python manage.py migrate  # migrate the database
 echo [OK]
 
 echo STARTING SERVER...
-uwsgi --socket 127.0.0.1:8001 --module root.wsgi --home env
+uwsgi --socket 127.0.0.1:8001 --module root.wsgi --home env --threads 10
