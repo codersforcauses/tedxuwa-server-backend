@@ -25,6 +25,7 @@ echo [OK]
 
 echo UPDATING NGINX CONFIG...
 cp ./tedxuwa_nginx.conf /etc/nginx/sites-available/default
+sudo /etc/init.d/nginx restart 
 echo [OK]
 
 echo INSTALLING REQUIREMENTS...
