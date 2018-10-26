@@ -6,7 +6,7 @@ This repo contains code for the database and server of the TEDxUWA website
 The instructions below will help you set up a development environment
 
 ### Python prerequisite
-Download and install [python 3](https://www.python.org/downloads/)
+Download and install [python 3.6](https://www.python.org/downloads/)
 
 ### Virtual environment
 `cd` into the project folder
@@ -26,7 +26,7 @@ $ virtualenv env
 ```
 If you have multiple versions of python installed, run:
 ```bash
-$ virtualenv -p python3 env
+$ virtualenv -p python3.6 env
 ```
 To activate the virtual environment, run
 ```bash
@@ -58,17 +58,29 @@ For more server starting options, visit the [django docs](https://docs.djangopro
 
 ## Deployment
 
-### Using deployment script
-On the digital ocean instance there is a folder called `website` on the root directory. Inside this folder there are 2 more folders: `front-end` and `back-end` each having the code from the repo
+### Folder structure
 
-There is a deployment script that lives inside `/website/` on the Digital Ocean droplet and it
-should be a direct copy of the `deploy.sh` file in this directory. The reason it's duplicated there
-is because you have to do `chmod +x` to the file to give it permission to run as a script and git counts
-that as a change to the file so you have to discard changes before you pull and that's too much effort.
+The folder structure is as follows:
+```
+root (~/)
+└── website
+    ├── back-end
+    ├── deploy.sh
+    └── front-end
+```
+
+Where `back-end` is this repo and `front-end` is our [front end repo](https://github.com/TEDxUWA/tedxuwa-react). This structure is embedded in most of
+the code (nginx config, deployment script, etc...) so it's a little hard to change.
+
+`deploy.sh` is a copy of the `deploy.sh` file in this repo. It's copied out to the 
+website folder so that we don't have to add execute permission to it everytime backend updates.
+This is the script to be run when you want to deploy either front end or back end code.
+
+### Using deployment script
 
 To run the deployment script, run
-```shell
-$ cd website
+```bash
+$ cd ~/website
 $ ./deploy.sh
 ```
 If deploy.sh doesn't have the permission to run, do `chmod +x deploy.sh` first then try again. If that still
@@ -76,6 +88,8 @@ doesn't work, open up the file and copy paste the commands inside
 
 ## Built with
 - Django: [a server framework for python](https://www.djangoproject.com/)
+- Nginx: [webserver](https://www.nginx.com/)
+- uWSGI: [application server container](https://uwsgi-docs.readthedocs.io/en/latest/)
 - Sqlite: [small imbeded database](https://www.sqlite.org/index.html)
 - Circleci: [continuous intergration service](https://circleci.com/gh/TEDxUWA/tedxuwa-server-backend)
 - Codecov: [code coverage service](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend)
