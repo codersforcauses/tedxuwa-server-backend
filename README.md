@@ -148,7 +148,7 @@ $ sudo chmod +x deploy.sh
 # run it
 $ ./deploy.sh
 ```
-The server should now be setup and running. **However, this will only serve http not https**
+The server should now be setup and running!
 
 #### 4. Setup https
 Certbot can be used to setup https. Head to [https://certbot.eff.org/](https://certbot.eff.org/) 
