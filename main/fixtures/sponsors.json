@@ -1,0 +1,13 @@
+[
+    {
+        "model": "main.sponsor",
+        "pk": 1,
+        "fields": {
+            "name": "EY",
+            "description": "Ernst & Young",
+            "logo_image": "https://www.ey.com/ecimages/EY-logo-li.png",
+            "created": "2018-10-28T10:49:13.749Z",
+            "updated": "2018-10-28T10:49:13.749Z"
+        }
+    }
+]
