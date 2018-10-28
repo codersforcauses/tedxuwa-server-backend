@@ -5,6 +5,10 @@ from django.views.generic.base import TemplateView
 from ratelimit.mixins import RatelimitMixin
 from ratelimit.utils import is_ratelimited
 from ratelimit.decorators import ratelimit
+from rest_framework.generics import ListAPIView
+
+from .models import Sponsor
+from .serializers import SponsorSerializer
 
 # Create your views here.
 
@@ -28,3 +32,9 @@ User-agent: *
 Disallow: /admin/
 """
     return HttpResponse(content, content_type="text/plain")
+
+
+class SponsorViewSet(ListAPIView):
+    # only allow listing and fetching single
+    queryset = Sponsor.objects.all()
+    serializer_class = SponsorSerializer

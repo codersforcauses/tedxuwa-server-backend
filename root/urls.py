@@ -21,9 +21,9 @@ from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 
-from events.views import EventViewSet, SpeakerViewset
+from events.views import EventViewSet, SpeakerViewSet
 from tedxuwa_user.views import CommitteeListView
-from main.views import ReactAppView, rate_limited_react_view, robotstxt_view
+from main.views import ReactAppView, rate_limited_react_view, robotstxt_view, SponsorViewSet
 from root.sitemaps import sitemaps
 
 admin.site.site_header = "TEDxUWA Administration"
@@ -38,7 +38,8 @@ urlpatterns = [
     # api views
     path('api/', include(router.urls)),
     path('api/committee/', CommitteeListView.as_view()),
-    path('api/events/<int:event_id>/speakers/', SpeakerViewset.as_view()),
+    path('api/events/<int:event_id>/speakers/', SpeakerViewSet.as_view()),
+    path('api/sponsors/', SponsorViewSet.as_view()),
     # others
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),

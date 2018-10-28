@@ -22,7 +22,7 @@ class EventViewSet(ReadOnlyModelViewSet):
         return self.queryset
 
 
-class SpeakerViewset(ListAPIView):
+class SpeakerViewSet(ListAPIView):
     # only allow listing and fetching single
     queryset = Speaker.objects.all()
     serializer_class = SpeakerSerializer
