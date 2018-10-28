@@ -4,18 +4,6 @@ from .models import Sponsor
 # Create your tests here.
 
 
-class TestFrontend(SimpleTestCase):
-
-    def test_main(self):
-        # smoke test front end
-        client = Client()
-        re = client.get("/")
-        self.assertEqual(re.status_code, 200)
-        # giberrish
-        re = client.get("/akldsjfkajsdfk")
-        self.assertEqual(re.status_code, 200)
-
-
 class TestSponsorViewSet(TestCase):
     fixtures = ["main/fixtures/sponsors.json"]
 
