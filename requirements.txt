@@ -19,7 +19,7 @@ pycodestyle==2.4.0
 pylint==1.8.4
 pytz==2018.4
 raven==6.6.0
-requests==2.18.4
+requests==2.20.0
 rope==0.11.0
 six==1.11.0
 Unidecode==1.0.22
