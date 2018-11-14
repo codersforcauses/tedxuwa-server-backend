@@ -12,7 +12,7 @@ from .serializers import SponsorSerializer
 
 # Create your views here.
 
-
+# DEPRECATED
 class ReactAppView(TemplateView, RatelimitMixin):
     template_name = settings.FRONTEND_ENTRY_POINT
     ratelimit_group = "main"
@@ -21,7 +21,7 @@ class ReactAppView(TemplateView, RatelimitMixin):
     ratelimit_block = True
 
 
-def rate_limited_react_view(request):
+def react_view(request):
     return render(request, settings.FRONTEND_ENTRY_POINT)
 
 
