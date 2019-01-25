@@ -29,6 +29,9 @@ class Member(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ["first_name", "last_name"]
+
 
 class CommitteeMember(models.Model):
     member = models.OneToOneField(Member, on_delete=models.CASCADE,
