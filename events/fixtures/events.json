@@ -12,6 +12,7 @@
             "banner_image": "https://stackoverflow.com/questions/37336559/how-to-use-django-imagefield-and-why-use-it-at-all",
             "ticket_url": "",
             "notes": "",
+            "published": true,
             "created": "2018-05-03T13:17:29.912Z",
             "updated": "2018-05-03T13:17:29.932Z"
         }

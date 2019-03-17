@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from events.models import Event
+from events.models import Event, Talk
 
 # Create your tests here.
 
@@ -43,3 +43,24 @@ class TestSpeakerEndpoint(TestCase):
         # non existent event
         re = self.c.get("/api/events/000/speakers/")
         self.assertEqual(re.status_code, 404)
+
+
+class TestTalkEndpoint(TestCase):
+    fixtures = ["events/fixtures/events.json",
+                "events/fixtures/speakers.json",
+                "events/fixtures/talks.json"]
+
+    def setUp(self):
+        self.c = Client()
+        self.talk = Event.objects.first()
+
+    def test_endpoint(self):
+        re = self.c.get(f"/api/talks/")
+        self.assertEqual(re.status_code, 200)
+        self.assertEqual(re.json()["count"], Talk.objects.count())
+        # non existent talk
+        re = self.c.get("/api/talks/1111/")
+        self.assertEqual(re.status_code, 404)
+        # retrieve talk
+        re = self.c.get("/api/talks/{}/".format(self.talk.id))
+        self.assertEqual(re.status_code, 200)
