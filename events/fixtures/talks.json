@@ -1,0 +1,12 @@
+[
+    {
+        "model": "events.talk",
+        "pk": 1,
+        "fields": {
+            "event": 1,
+            "speaker": 1,
+            "title": "Test Talk",
+            "link": "https://tedxuwa.com"
+        }
+    }
+]
