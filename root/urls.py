@@ -30,6 +30,7 @@ admin.site.site_header = "TEDxUWA Administration"
 
 router = DefaultRouter()
 router.register(r'^events', EventViewSet)
+router.register(r'^talks', TalkViewSet)
 
 urlpatterns = [
     path('favicon.ico', RedirectView.as_view(url="{}favicon.ico".format(
@@ -40,7 +41,6 @@ urlpatterns = [
     path('api/committee/', CommitteeListView.as_view()),
     path('api/events/<int:event_id>/speakers/', SpeakerViewSet.as_view()),
     path('api/sponsors/', SponsorViewSet.as_view()),
-    path('api/talks/', TalkViewSet.as_view()),
     # others
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),

@@ -32,7 +32,7 @@ class SpeakerViewSet(ListAPIView):
         return event.speakers.all()
 
 
-class TalkViewSet(ListAPIView):
+class TalkViewSet(ReadOnlyModelViewSet):
     # only allow listing and fetching single
     queryset = Talk.objects.all()
     serializer_class = TalkSerializer
