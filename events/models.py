@@ -77,3 +77,14 @@ class Speaker(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Talk(models.Model):
+    event = models.ForeignKey(Event, related_name="talks",
+                              on_delete=models.CASCADE,
+                              help_text="which event the talk as given at")
+    speaker = models.ForeignKey(Speaker, related_name="talks",
+                                on_delete=models.CASCADE,
+                                help_text="which speaker gave this talk")
+    title = models.CharField(max_length=1024)
+    link = models.URLField()
