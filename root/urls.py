@@ -21,7 +21,7 @@ from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 
-from events.views import EventViewSet, SpeakerViewSet
+from events.views import EventViewSet, SpeakerViewSet, TalkViewSet
 from tedxuwa_user.views import CommitteeListView
 from main.views import ReactAppView, react_view, robotstxt_view, SponsorViewSet
 from root.sitemaps import sitemaps
@@ -40,6 +40,7 @@ urlpatterns = [
     path('api/committee/', CommitteeListView.as_view()),
     path('api/events/<int:event_id>/speakers/', SpeakerViewSet.as_view()),
     path('api/sponsors/', SponsorViewSet.as_view()),
+    path('api/talks/', TalkViewSet.as_view()),
     # others
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
