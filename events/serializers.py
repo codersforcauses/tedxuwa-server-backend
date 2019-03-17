@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Event, Speaker
+from .models import Event, Speaker, Talk
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -14,3 +14,9 @@ class SpeakerSerializer(serializers.ModelSerializer):
         model = Speaker
         fields = ("id", "events", "name", "profile_image",
                   "tag_line", "bio")
+
+
+class TalkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Talk
+        fields = ("id", "event", "speaker", "title", "link")
