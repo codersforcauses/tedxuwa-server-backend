@@ -88,3 +88,9 @@ class Talk(models.Model):
                                 help_text="which speaker gave this talk")
     title = models.CharField(max_length=1024)
     link = models.URLField()
+
+    def __str__(self):
+        return "{} - {}".format(
+            self.speaker.__str__(),
+            self.title
+        )
