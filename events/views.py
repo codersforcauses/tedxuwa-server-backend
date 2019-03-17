@@ -11,7 +11,7 @@ from .serializers import EventSerializer, SpeakerSerializer
 
 class EventViewSet(ReadOnlyModelViewSet):
     # only allow listing and fetching single
-    queryset = Event.objects.all()
+    queryset = Event.objects.filter(published=True)
     serializer_class = EventSerializer
 
     def get_queryset(self):

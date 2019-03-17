@@ -31,6 +31,8 @@ class Event(models.Model):
     ticket_url = models.URLField(blank=True)
     featured = models.BooleanField(default=False)
     notes = models.TextField(blank=True, help_text="internal use only")
+    published = models.BooleanField(default=False,
+                                    help_text="whether or not the event should be shown online")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
