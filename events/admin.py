@@ -10,6 +10,8 @@ class EventAdmin(admin.ModelAdmin):
     model = Event
     search_fields = ("name",)
     list_filter = ("event_type", "featured")
+    list_display = ("published", "featured")
+    list_editable = ("published", "featured")
 
 
 @admin.register(EventTicket)
