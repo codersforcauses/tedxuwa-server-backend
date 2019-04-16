@@ -13,6 +13,7 @@ git pull
 echo [OK]
 
 echo BUILDING FRONT END CODE...
+npm install
 npm run build
 echo [OK]
 
