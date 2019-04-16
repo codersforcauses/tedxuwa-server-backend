@@ -132,9 +132,9 @@ CORS_ORIGIN_WHITELIST = (
     'tedxuwa.com',
     'www.tedxuwa.com',
     'localhost:8000',
+    'localhost:3000',
     '127.0.0.1:8000',
     '127.0.0.1:3000',
-    'localhost:8000',
 )
 # just disable it
 CORS_ORIGIN_ALLOW_ALL = True
