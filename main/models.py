@@ -9,7 +9,7 @@ class Sponsor(models.Model):
     logo_image = models.URLField()
     link = models.URLField(blank=True)
     tier = models.IntegerField(default=3,
-                               help_text="3 is the lowest and 1 is the highest")
+                               help_text="3 is the lowest and 1 is the highest where 3 = logo+description+link, 2 = logo+description and 1 = logo")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
