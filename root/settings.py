@@ -219,7 +219,7 @@ if DEPLOYMENT == "PRODUCTION":
         'disable_existing_loggers': DEPLOYMENT == "PRODUCTION",
         'root': {
             'level': 'ERROR',
-            'handlers': ['sentry'],
+            'handlers': ['sentry', 'papertrail'],
         },
         'formatters': {
             'verbose': {
