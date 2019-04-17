@@ -237,7 +237,7 @@ if DEPLOYMENT == "PRODUCTION":
             'papertrail': {
                 'level': 'DEBUG',
                 'class': 'logging.handlers.SysLogHandler',
-                'address': (PAPERTRAIL_LOG_DESTINATION,)
+                'address': PAPERTRAIL_LOG_DESTINATION
             },
             'console': {
                 'level': 'ERROR',
