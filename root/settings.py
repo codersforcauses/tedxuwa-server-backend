@@ -237,10 +237,6 @@ if DEPLOYMENT == "PRODUCTION":
             'papertrail': {
                 'level': 'DEBUG',
                 'class': 'logging.handlers.SysLogHandler',
-                'formatter': {
-                    'format': '%(asctime)s SENDER_NAME PROGRAM_NAME: %(message)s',
-                    'datefmt': '%Y-%m-%dT%H:%M:%S',
-                },
                 'address': (PAPERTRAIL_LOG_DESTINATION,)
             },
             'console': {
