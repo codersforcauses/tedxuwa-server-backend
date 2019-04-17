@@ -169,6 +169,7 @@ You can use `dumpdata` to dump everything in the database into a json file then 
 - Circleci: [continuous intergration service](https://circleci.com/gh/TEDxUWA/tedxuwa-server-backend)
 - Codecov: [code coverage service](https://codecov.io/gh/TEDxUWA/tedxuwa-server-backend)
 - Sentry: [automated error log capture](https://sentry.io/tedxuwa/tedxuwa/)
+- Papertrail: [loggin service](https://papertrailapp.com/)
 
 ## Notes
 - The `db.sqlite3` **IS** the database. Backup regularly and don't delete it on production
@@ -176,6 +177,8 @@ You can use `dumpdata` to dump everything in the database into a json file then 
 
 ## Things to remember
 - [x] set `DEPLOYMENT` environment variable in production
+- [x] set `DJANGO_SECRET_KEY` environment variable in production
+- [x] set `PAPERTRAIL_LOG_DESTINATION` environment variable in production
 - [x] regenerate django secret key
 - [ ] protect master branch
 - [x] run `collectstatic`
