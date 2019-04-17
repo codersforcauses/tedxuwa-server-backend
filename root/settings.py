@@ -210,6 +210,8 @@ if DEPLOYMENT == "PRODUCTION":
         # https://github.com/getsentry/raven-python/issues/855
         'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
     }
+    PAPERTRAIL_LOG_DESTINATION = os.environ.get("PAPERTRAIL_LOG_DESTINATION",
+                                                "dummypapertraillink")
     # intergrate with logging to send errors to sentry automatically
     # https://docs.sentry.io/clients/python/integrations/django/#integration-with-logging
     LOGGING = {
@@ -231,6 +233,15 @@ if DEPLOYMENT == "PRODUCTION":
                 'level': 'ERROR',
                 'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
                 'tags': {'custom-tag': 'x'},
+            },
+            'papertrail': {
+                'level': 'DEBUG',
+                'class': 'logging.handlers.SysLogHandler',
+                'formatter': {
+                    'format': '%(asctime)s SENDER_NAME PROGRAM_NAME: %(message)s',
+                    'datefmt': '%Y-%m-%dT%H:%M:%S',
+                },
+                'address': (PAPERTRAIL_LOG_DESTINATION,)
             },
             'console': {
                 'level': 'ERROR',
@@ -257,6 +268,11 @@ if DEPLOYMENT == "PRODUCTION":
                 'level': 'ERROR',
                 'handlers': ['console'],
                 'propagate': False,
+            },
+            'papertrail': {
+                'level': 'INFO',
+                'handlers': ['console', 'papertrail'],
+                'propagate': True,
             },
             'django.security.DisallowedHost': {
                 'handlers': ['null'],
