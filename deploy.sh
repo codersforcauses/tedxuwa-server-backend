@@ -29,6 +29,13 @@ cp ./tedxuwa_nginx.conf /etc/nginx/sites-available/default
 sudo /etc/init.d/nginx restart 
 echo [OK]
 
+echo UPDATING CERTBOT HOOKS...
+cp ./scripts/certbot_prerenew.sh /etc/letsencrypt/renewal-hooks/pre
+cp ./scripts/certbot_postrenew.sh /etc/letsencrypt/renewal-hooks/post
+chmod +x /etc/letsencrypt/renewal-hooks/pre/certbot_prerenew.sh
+chmod +x /etc/letsencrypt/renewal-hooks/post/certbot_postrenew.sh
+echo [OK]
+
 echo UPDATING DEPLOYMENT SCRIPT...
 cp deploy.sh ../
 echo [OK]
