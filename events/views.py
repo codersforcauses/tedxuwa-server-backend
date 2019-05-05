@@ -34,7 +34,7 @@ class SpeakerViewSet(ListAPIView):
 
 class SpeakerListViewSet(ListAPIView):
     # list all speakers
-    queryset = Speaker.objects.all()
+    queryset = Speaker.objects.all().order_by("-events__start")
     serializer_class = SpeakerSerializer
 
 
