@@ -23,7 +23,7 @@ from rest_framework.routers import DefaultRouter
 
 from events.views import EventViewSet, SpeakerViewSet, SpeakerListViewSet, TalkViewSet
 from tedxuwa_user.views import CommitteeListView
-from main.views import ReactAppView, react_view, robotstxt_view, SponsorViewSet
+from main.views import ReactAppView, react_view, robotstxt_view, SponsorViewSet, download_db
 from root.sitemaps import sitemaps
 
 admin.site.site_header = "TEDxUWA Administration"
@@ -35,6 +35,7 @@ router.register(r'^talks', TalkViewSet)
 urlpatterns = [
     path('favicon.ico', RedirectView.as_view(url="{}favicon.ico".format(
         settings.STATIC_URL), permanent=True)),
+    path('admin/downloaddb/', download_db),
     path('admin/', admin.site.urls),
     # api views
     path('api/', include(router.urls)),
