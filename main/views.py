@@ -2,10 +2,12 @@ from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.conf import settings
 from django.views.generic.base import TemplateView
+from django.contrib.admin.views.decorators import staff_member_required
 from ratelimit.mixins import RatelimitMixin
 from ratelimit.utils import is_ratelimited
 from ratelimit.decorators import ratelimit
 from rest_framework.generics import ListAPIView
+import os
 
 from .models import Sponsor
 from .serializers import SponsorSerializer
@@ -13,6 +15,8 @@ from .serializers import SponsorSerializer
 # Create your views here.
 
 # DEPRECATED
+
+
 class ReactAppView(TemplateView, RatelimitMixin):
     template_name = settings.FRONTEND_ENTRY_POINT
     ratelimit_group = "main"
@@ -32,6 +36,17 @@ User-agent: *
 Disallow: /admin/
 """
     return HttpResponse(content, content_type="text/plain")
+
+
+@staff_member_required
+def download_db(request):
+    file_path = settings.DATABASES["default"]["NAME"]
+    with open(file_path, 'rb') as fh:
+        response = HttpResponse(
+            fh.read(), content_type="application/x-sqlite3")
+        response['Content-Disposition'] = 'inline; filename=' + \
+            os.path.basename(file_path)
+        return response
 
 
 class SponsorViewSet(ListAPIView):
