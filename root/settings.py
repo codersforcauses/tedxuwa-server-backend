@@ -64,6 +64,8 @@ INSTALLED_APPS = [
     'admincolors',
     'rest_framework',
     'sslserver',
+    'constance.backends.database',
+    'constance',
     # user written
     'main',
     'tedxuwa_user',
@@ -276,3 +278,8 @@ if DEPLOYMENT == "PRODUCTION":
             },
         },
     }
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+CONSTANCE_CONFIG = {
+    'TICKET_FORWARD_LINK': ('https://tedxuwa.com', 'where to forward tickets.tedxuwa.com to'),
+}
