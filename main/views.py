@@ -7,6 +7,7 @@ from ratelimit.mixins import RatelimitMixin
 from ratelimit.utils import is_ratelimited
 from ratelimit.decorators import ratelimit
 from rest_framework.generics import ListAPIView
+from constance import config
 import os
 
 from .models import Sponsor

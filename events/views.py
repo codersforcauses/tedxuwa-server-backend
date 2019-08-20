@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework.generics import ListAPIView
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework.response import Response
+from constance import config
 
 from .models import Event, Speaker, Talk
 from .serializers import EventSerializer, SpeakerSerializer, TalkSerializer
@@ -42,3 +43,10 @@ class TalkViewSet(ReadOnlyModelViewSet):
     # only allow listing and fetching single
     queryset = Talk.objects.all()
     serializer_class = TalkSerializer
+
+
+def forward_ticket_link(request):
+    # this view is used to send ticket tracking link through us
+    # so that we can track this on google analytics
+    return render(request, "events/ticket_redirect.html",
+                  {"redirect_url": config.TICKET_FORWARD_LINK})
