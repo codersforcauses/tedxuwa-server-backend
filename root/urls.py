@@ -23,7 +23,7 @@ from rest_framework.routers import DefaultRouter
 
 from events.views import EventViewSet, SpeakerViewSet, SpeakerListViewSet, TalkViewSet, forward_ticket_link
 from tedxuwa_user.views import CommitteeListView
-from main.views import ReactAppView, react_view, robotstxt_view, SponsorViewSet, download_db
+from main.views import ReactAppView, react_view, robotstxt_view, SponsorViewSet, download_db, redirect_short_link
 from root.sitemaps import sitemaps
 
 admin.site.site_header = "TEDxUWA Administration"
@@ -46,9 +46,11 @@ urlpatterns = [
     # others
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
+    re_path('tickets/*', forward_ticket_link),
+    path('r/<path>', redirect_short_link),
+    path('r/<path>/', redirect_short_link),
     path('robots.txt', robotstxt_view),
     # https://medium.com/@nicholaskajoh/heres-a-dead-simple-react-django-setup-for-your-next-project-c0b0036663c6
     # re_path('.*', ReactAppView.as_view()),
-    re_path('tickets/*', forward_ticket_link),
     re_path('.*', react_view),
 ]

@@ -10,7 +10,7 @@ from rest_framework.generics import ListAPIView
 from constance import config
 import os
 
-from .models import Sponsor
+from .models import Sponsor, ForwardLink
 from .serializers import SponsorSerializer
 
 # Create your views here.
@@ -54,3 +54,20 @@ class SponsorViewSet(ListAPIView):
     # only allow listing and fetching single
     queryset = Sponsor.objects.all()
     serializer_class = SponsorSerializer
+
+
+def redirect_short_link(request, path):
+    # redirect and send event to google analytics
+    try:
+        url_obj = ForwardLink.objects.get(path=path)
+        url = url_obj.link
+        title = url_obj.title
+    except ForwardLink.DoesNotExist:
+        url = "tedxuwa.com"  # default
+        title = "TEDxUWA"
+    return render(request,
+                  "main/redirect.html",
+                  {
+                      "redirect_url": url,
+                      "title": title}
+                  )
