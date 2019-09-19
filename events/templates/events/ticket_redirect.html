@@ -7,10 +7,11 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'UA-117422701-4');
-
-        // redirect to page
-        window.location = "{{ redirect_url }}";
+        gtag('config', 'UA-117422701-4', {'send_page_view': false});
+        gtag('event', 'page_view',
+            {'event_callback': function() {
+                window.location.replace("{{ redirect_url }}");}
+            });
     </script>
     <title>TEDxUWA Ticketing</title>
 </head>
