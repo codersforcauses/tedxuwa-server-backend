@@ -1,21 +1,24 @@
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117422701-4"></script>
     <script>
+        function redirectPage() {
+            window.location.replace("{{ redirect_url }}");
+        }
+
+        // give google analytics 5 seconds before default redirecting
+        setTimeout(redirectPage, 5000);
+
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'UA-117422701-4', {'send_page_view': false});
-        gtag('event', 'page_view',
-            {'event_callback': function() {
-                window.location.replace("{{ redirect_url }}");}
-            });
+        gtag('event', 'page_view', {'event_callback': redirectPage});
     </script>
     <title>TEDxUWA Ticketing</title>
 </head>
 
 <body>
-    redirecting to {{ redirect_url }}
+    redirecting you to {{ redirect_url }}
 </body>
