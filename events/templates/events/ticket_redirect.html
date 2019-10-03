@@ -1,24 +1,29 @@
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117422701-4"></script>
-    <script>
-        function redirectPage() {
-            window.location.replace("{{ redirect_url }}");
-        }
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-117422701-4"
+  ></script>
+  <script>
+    function redirectPage() {
+      window.location.replace("{{ redirect_url }}");
+    }
 
-        // give google analytics 5 seconds before default redirecting
-        setTimeout(redirectPage, 5000);
+    // give google analytics 5 seconds before default redirecting
+    setTimeout(redirectPage, 5000);
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-        gtag('config', 'UA-117422701-4', {'send_page_view': false});
-        gtag('event', 'page_view', {'event_callback': redirectPage});
-    </script>
-    <title>TEDxUWA Ticketing</title>
+    gtag("config", "UA-117422701-4", { send_page_view: false });
+    gtag("event", "page_view", { event_callback: redirectPage });
+  </script>
+  <title>TEDxUWA Ticketing</title>
 </head>
 
 <body>
-    redirecting you to {{ redirect_url }}
+  redirecting you to <a href="{{ redirect_url }}">{{ redirect_url }}</a>
 </body>
