@@ -27,7 +27,7 @@ class ForwardLink(models.Model):
 
     @property
     def full_path(self):
-        return "tedxuwa.com/r/" + self.path
+        return "t.tedxuwa.com/" + self.path
 
     def __str__(self):
         return self.title
