@@ -54,4 +54,4 @@ python manage.py migrate  # migrate the database
 echo [OK]
 
 echo STARTING SERVER...
-uwsgi --socket :8001 --module root.wsgi --home env -b 32768
+uwsgi --socket :8001 --module root.wsgi --home env -b 32768 --post-buffering 32768
