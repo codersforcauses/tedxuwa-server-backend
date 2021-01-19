@@ -54,6 +54,6 @@ python manage.py migrate  # migrate the database
 echo [OK]
 
 echo STARTING SERVER...
-uwsgi --socket :8002 --module root.wsgi --home env -b 32768 --post-buffering 1 --master --master-fifo /tmp/sitefifo
+uwsgi --socket :8002 --module root.wsgi --home env -b 32768 --post-buffering 1 --master --master-fifo /tmp/sitefifo --pidfile=/tmp/websitesite.pid
 
 # https://code.djangoproject.com/ticket/19615
