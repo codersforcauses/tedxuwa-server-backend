@@ -282,4 +282,7 @@ if DEPLOYMENT == "PRODUCTION":
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 CONSTANCE_CONFIG = {
     'TICKET_FORWARD_LINK': ('https://tedxuwa.com', 'where to forward tickets.tedxuwa.com to'),
+    'REACH_FOLLOWERS': ('3k', 'number of followers'),
+    'REACH_SPEAKERS': ('80', 'number of speakers'),
+    'REACH_SUBSCRIBERS': ('854', 'number of subscribers')
 }
