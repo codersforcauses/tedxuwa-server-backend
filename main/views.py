@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.conf import settings
 from django.views.generic.base import TemplateView
 from django.contrib.admin.views.decorators import staff_member_required
@@ -71,3 +71,11 @@ def redirect_short_link(request, path):
                       "redirect_url": url,
                       "title": title}
                   )
+
+
+def reach_data(request):
+    return JsonResponse({
+        'followers': config.REACH_FOLLOWERS,
+        'speakers': config.REACH_SPEAKERS,
+        'subscribers': config.REACH_SUBSCRIBERS
+    })
