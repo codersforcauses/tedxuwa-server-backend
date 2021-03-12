@@ -54,6 +54,6 @@ python manage.py migrate  # migrate the database
 echo [OK]
 
 echo STARTING SERVER...
-uwsgi --socket :8001 --module root.wsgi --home env -b 32768 --post-buffering 1 --master --pidfile=/tmp/website.pid --stats
+uwsgi --socket :8001 --module root.wsgi --home env -b 32768 --post-buffering 1 --master --pidfile=/tmp/website.pid --stats :1717
 
 # https://code.djangoproject.com/ticket/19615
