@@ -29,6 +29,11 @@ cp ./tedxuwa_nginx.conf /etc/nginx/sites-available/default
 sudo /etc/init.d/nginx restart 
 echo [OK]
 
+echo UPDATING GUNICORN SYSTEMD CONFIG...
+cp ./gunicorn.service /etc/systemd/system/gunicorn.service
+sudo /etc/init.d/nginx restart 
+echo [OK]
+
 echo UPDATING CERTBOT HOOKS...
 cp ./scripts/certbot_prerenew.sh /etc/letsencrypt/renewal-hooks/pre
 cp ./scripts/certbot_postrenew.sh /etc/letsencrypt/renewal-hooks/post
@@ -54,8 +59,8 @@ python manage.py migrate  # migrate the database
 echo [OK]
 
 echo STARTING SERVER...
-sudo systemctl restart nginx
 sudo systemctl daemon-reload
+sudo systemctl restart nginx
 sudo systemctl restart gunicorn
 
 # https://code.djangoproject.com/ticket/19615

@@ -1,0 +1,10 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+WorkingDirectory=/root/website/back-end
+ExecStart=/root/website/back-end/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/root/website/back-end/root.sock root.wsgi
+
+[Install]
+WantedBy=multi-user.target
