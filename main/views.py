@@ -3,6 +3,7 @@ from django.http.response import HttpResponse, JsonResponse
 from django.conf import settings
 from django.views.generic.base import TemplateView
 from django.contrib.admin.views.decorators import staff_member_required
+from  django.views.decorators.cache import cache_control
 from ratelimit.mixins import RatelimitMixin
 from ratelimit.utils import is_ratelimited
 from ratelimit.decorators import ratelimit
@@ -25,7 +26,7 @@ class ReactAppView(TemplateView, RatelimitMixin):
     ratelimit_rate = "0/s"
     ratelimit_block = True
 
-
+@cache_control(max_age=3600)
 def react_view(request):
     return render(request, settings.FRONTEND_ENTRY_POINT)
 
