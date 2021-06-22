@@ -1,2 +1,4 @@
 # restart nginx after certbot renewal
-service nginx start
+sudo systemctl daemon-reload
+sudo systemctl restart nginx
+sudo systemctl restart gunicorn
